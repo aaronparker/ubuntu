@@ -32,7 +32,7 @@ autoinstall:
   drivers:
     install: false
   identity:
-    hostname: homebridge
+    hostname: adguard
     password: $6$b7kMvpMn/KRIPrYJ$lPOj9YG11x.Haj/HNcA3SlC3YeH9Qj/xfAtkIyf8.iwbNslvjGzpfOUC9CMui5or8kb7ctuJd6vFs3N5ymvwu0
     realname: Aaron
     username: aaron
