@@ -22,6 +22,6 @@ jobs:
             - name: Lint
               shell: pwsh
               run: |
-                Get-ChildItem -Path "${{ github.workspace }}" -Recurce -Include "user-data" | ForEach-Object {
+                Get-ChildItem -Path "${{ github.workspace }}" -Recurse -Include "user-data" | ForEach-Object {
                     cloud-init schema --config-file $_.FullName
                 }
