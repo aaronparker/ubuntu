@@ -1,0 +1,27 @@
+
+name: 'Lint cloud-config'
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**/user-data'
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                ref: main
+
+            - name: Lint
+              shell: pwsh
+              run: |
+                Get-ChildItem -Path "${{ github.workspace }}" -Recurce -Include "user-data" | ForEach-Object {
+                    cloud-init schema --config-file $_.FullName
+                }
